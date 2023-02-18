@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+
+        input[type=text],
+        input[type=password],input[type=number] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=password]:focus,input[type=number]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+/* 
+        input[type="file"] {
+            display: block;
+            width: 66px;
+            height: 25px;
+            clip: rect(0px 0px 0px 0px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            } */
+
+
+        input[type=submit]:hover {
+            opacity: 1;
+        }
+        #upload-photo{
+            display: block;
+        }
+        input[type=submit]{
+            font-size: large;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            opacity: 0.8;
+            border: none;
+            width: 130PX;
+            height: 25px;
+            border-radius: 3px;
+            display: block;
+            margin:10px;
+        }
+        img{
+            width: 400px;
+            height: 250px;
+        }
+        #logo{
+            margin-top: 0px;
+            font-size: 82px;
+            color: blue;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+            margin-bottom: 0px;
+        }
+        .heading{
+            text-align: center;
+        }
+        input::placeholder{
+            color: gray;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 19px;
+        }
+        a{
+        margin-left: 10px;
+    }
+        /* input::placeholder:focus{
+            background-color: yellow;
+            
+        } */
+        .submit:hover{
+            border: 2px solid gray;
+            cursor: pointer;
+        }
+        .submit{
+            border-radius: 8px;
+        margin-top: 22px;
+        background-color: black;
+        text-align: center;
+        padding: 10px;
+        border: transparent 2px solid;
+        outline: none;
+
+        }
+        input[type='submit'] {
+            font-size: 23px;
+    margin: 0px auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    background: none;
+    height: 25px;
+}
+.loading{
+     display: none;
+background-image: url(../src/loading/Infinity-1s-197px.gif);
+    min-height: 100%;
+    height: 80px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+ .fa-solid {
+    position: relative;
+    top: -50px;
+    left: -22px;
+    float: right;
+    display: none;
+}
+ .fa-eye{
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <h1 id="logo">O|X</h1>
+    <div class="container">
+        <h1 class="heading">REGISTER</h1>
+        <p  class="heading">OLX BUY AND SELL FOR FREE</p>
+        <hr>
+        <label for="title"><b>UserName</label>
+        <input  type="text" id="username" placeholder="Enter UserName" name="UserName" >
+
+        <label for="title"><b>EMAIL</label>
+        <input type="text" placeholder="Enter your Email"name="email"  >
+
+        <div class="input">
+            <label for="price"><b>PASSWORD</b></label>
+            <input type="password" placeholder="Enter Your Password" name="password"  required> 
+            <!-- <span> <i class="fa-solid fa-eye-slash"></i></span> -->
+            <!-- <i class="fa-solid fa-eye-slash"></i> <i class="fa-solid fa-eye"></i> -->
+            <span id="hide" onclick="showPassword()" > <i class="fa-solid fa-eye-slash"></i> <i class="fa-solid fa-eye"></i></span>
+        </div>
+
+
+
+
+<!-- 
+        <label for="price"><b>PASSWORD</b></label>
+        <input type="password" placeholder="Enter Your Password" name="password"  required>  -->
+        
+        <label for="price"><b>AGE</b></label>
+        <input type="number" placeholder="Enter Your Age" name="Age"  required>
+        <input id="userImage" type="file" value="images">
+        <p id="error" ></p>
+        <p>Have An Already Account?<a href="./login.html">Click Here Login</a></p>
+
+
+
+        <div class="loading"></div>
+            <div class="submit" onclick="register()">
+                <input type="submit" value="REGISTER">
+            </div>
+        <input type="submit" onclick="register()" value="REGISTER">
+        
+    </div> 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module" src="./config/firebase.js" ></script>
+<script type="module" src="./register.js" ></script>
+</body>
+
+
+</html>

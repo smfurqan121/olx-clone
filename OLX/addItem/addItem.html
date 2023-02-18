@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        .container {
+           z-index: -1;
+            
+            padding: 16px;
+        }   
+            /* z-index: 2;*/
+           
+ .loading{
+     display: none;
+background-image: url(../src/loading/Infinity-1s-197px.gif);
+    min-height: 100%;
+    height: 80px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+
+  
+ }
+    
+    /* margin: 10px auto; */
+        input[type=text],
+        input[type=number] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=number]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+/* 
+        input[type="file"] {
+            display: block;
+            width: 66px;
+            height: 25px;
+            clip: rect(0px 0px 0px 0px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            } */
+
+
+    
+        #upload-photo{
+            display: block;
+            margin-top: 22px;
+        }
+
+        .submit:hover{
+            border: 2px solid gray;
+            cursor: pointer;
+        }
+        .submit{
+            border-radius: 8px;
+        margin-top: 22px;
+        background-color: black;
+        text-align: center;
+        padding: 10px;
+        border: transparent 2px solid;
+        outline: none;
+
+        }
+        input[type='submit']{
+            font-size: 23px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: white;
+            font-weight: bold;
+            text-align:center;
+            border: none;
+            background: none;
+        }
+            
+        
+        img{
+            width: 400px;
+            height: 250px;
+        }
+        #logo{
+            margin-top: 20px;
+            font-size: 82px;
+            color: blue;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+            margin-bottom: 0px;
+        }
+        .heading{
+            text-align: center;
+        }
+        input::placeholder{
+            color: gray;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 19px;
+        }
+       /* input type="file" custom styles */
+      .custom-file-input {
+        color: transparent;
+        width: 25px;
+      }
+      .custom-file-input::-webkit-file-upload-button {
+        /* visibility: hidden; */
+        display: none;
+      }
+      .custom-file-input::before {
+        content: url("../src/images/upload.png");
+         color: black;
+        display: inline-block;
+        border-radius: 3px;
+        outline: none;
+        white-space: nowrap;
+        
+    cursor: pointer;
+      }
+.file{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 30px;
+}
+.file label{
+    font-size: 20px;
+}
+    
+    </style>
+</head>
+<body>
+<h1 id="logo">O|X</h1>
+   
+        <div class="container">
+            
+                <h1 class="heading">Add Product</h1>
+                <p  class="heading">OLX BUY AND SELL FOR FREE</p>
+                <hr>
+                <label for="title"><b>TITLE</label>
+                    <input type="text" placeholder="Enter Product Title" name="title" id="title" required>
+
+                    <label for="title"><b>DESCRIPTION</label>
+                <input type="text" placeholder="Enter Product Description" name="Description" id="description" required>
+                
+                <label for="price"><b>PRICE</b></label>
+                <input type="number" placeholder="Enter Your price" name="price" id="price" required>
+
+                <label for="location"><b>LOCATION</b></label>
+                <input type="text" placeholder="Enter Your location" name="location" id="location" required> 
+                <div class="file">
+
+                    <label for="images" ><b>Product images</b></label>
+                        <input class="custom-file-input"  id="uploadImage" type="file"/>
+                    </div>
+
+                    <p id="error" style="color: red;"></p>
+                    
+                    <div class="loading"></div>
+                    <div class="submit" onclick="addProduct()">
+                        <input type="submit" >
+                    </div>
+            
+           
+        </div>
+   
+</body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script type="module" src="../firebase/config/firebase.js" ></script>
+<script type="module" src="addItem.js" ></script>
+</html>

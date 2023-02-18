@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main-container {
+        width: 100%;
+        background-color: gray;
+        height: 100vh;
+
+        /* align-items: center; */
+      }
+      .messages-container {
+        width: 100%;
+        height: 92%;
+
+        display: block;
+
+        background-image: url("../src/images/chatroom.webp");
+        background-repeat: none;
+        overflow-y: scroll;
+        overflow-x: hidden;
+       
+    }
+    /* make custom scroll bar */
+    .messages-container::-webkit-scrollbar {
+        width: 13px;
+      }
+      .messages-container::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+      .messages-container::-webkit-scrollbar-thumb {
+        background: goldenrod;
+        border-radius: 10px;
+      }
+
+      .messages-container::-webkit-scrollbar-thumb:hover {
+        background: black;
+      }
+
+      /* input[type='text']:focus{
+         
+            outline: none;
+         
+        } */
+      input[type="text"] {
+        width: 96%;
+        border-radius: 15px;
+        height: 50px;
+        background-color: #fff;
+        color: black;
+        font-size: 21px;
+        font-family: cursive;
+        border: none;
+        outline: none;
+        padding: 7px 15px;
+      }
+      input::placeholder {
+        color: gray;
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 19px;
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 10%;
+      }
+      .type-messages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f2f5;
+        width: 100%;
+        height: 8%;
+        padding: 5px 15px;
+        border-top: 2px solid goldenrod;
+      }
+      .inputs {
+        display: flex;
+        width: 94%;
+        justify-content: space-around;
+      }
+      .message-blue {
+        display: grid;
+        margin: 15px 70% 10px 18px;
+        position: relative;
+        float: left;
+        padding: 9px;
+        background-color: #9e9e9d;
+        max-width: 50%;
+        word-wrap: break-word;
+        text-align: left;
+        width: fit-content;
+        font: 400 0.9em "Open Sans", sans-serif;
+        border-radius: 10px;
+      }
+
+      .message-blue:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 15px solid #9e9e9d;
+        border-left: 15px solid transparent;
+        /* border-right: 15px solid transparent; */
+        top: 0px;
+        left: -6px;
+      }
+      /* .message-blue:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 17px solid #97C6E3;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    top: -1px;
+    left: -17px
+} */
+      .message-orange {
+        display: grid;
+        margin: 15px 15px 10px 69%;
+        position: relative;
+        float: right;
+        padding: 9px;
+        background-color: #f8e896;
+        max-width: 50%;
+        word-wrap: break-word;
+        text-align: left;
+        font: 400 0.9em "Open Sans", sans-serif;
+        border-radius: 10px;
+      }
+      .message-orange:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 15px solid #f8e896;
+        /* border-left: 15px solid transparent; */
+        border-right: 15px solid transparent;
+        top: 0px;
+        right: -6px;
+      }
+
+      #time {
+        text-align: right;
+        font-size: 0.85em;
+        /* font-weight: 300;
+    bottom: 5px;
+    right: 5px; */
+      }
+
+      button {
+        background: none;
+        border: none;
+      }
+
+      /* input type="file" custom styles */
+      .custom-file-input {
+        color: transparent;
+        width: 25px;
+      }
+      .custom-file-input::-webkit-file-upload-button {
+        /* visibility: hidden; */
+        display: none;
+      }
+      .custom-file-input::before {
+        content: url("../src/images/attach-file.png");
+        color: black;
+        display: inline-block;
+        border-radius: 3px;
+        outline: none;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .custom-file-input:hover::before {
+        border-color: black;
+        background: -webkit-linear-gradient(top, #ffebeb, #ffd3d3);
+      }
+      .custom-file-input:active::before {
+        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+        <div class="messages-container" id="ads">
+          <!-- <div class="messages">
+            <span>kia hal ha mera bhi</span>
+            <div id="time">09:40</div>
+          </div>
+          <div class="messages">
+            <span>kia hal ha mera bhi</span>
+            <div id="time">09:40</div>
+          </div>
+          <div class="messages">
+            <span>kia hal ha mera bhi</span>
+            <div id="time">09:40</div>
+          </div>
+          <div class="message-blue">
+            <span>2nd messages</span>
+            <div id="time">02:55</div>
+          </div>
+          <div class="message-blue">
+            <span>2nd messages</span>
+            <div id="time">02:55</div>
+          </div> -->
+
+          <!-- <svg viewBox="0 0 8 13" width="8" height="13" class=""><path opacity=".13" fill="#0000000" d="M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"></path><path fill="currentColor" d="M1.533 2.568 8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"></path></svg> -->
+        </div>
+        <div class="type-messages">
+          <div class="icon">
+            <div class="smile-icon">
+              <button>
+                <svg
+                  viewBox="0 0 24 24" width="24" height="24"class="ekdr8vow dhq51u3o"><path fill="currentColor" d="M9.153 11.603c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962zm-3.204 1.362c-.026-.307-.131 5.218 6.063 5.551 6.066-.25 6.066-5.551 6.066-5.551-6.078 1.416-12.129 0-12.129 0zm11.363 1.108s-.669 1.959-5.051 1.959c-3.505 0-5.388-1.164-5.607-1.959 0 0 5.912 1.055 10.658 0zM11.804 1.011C5.609 1.011.978 6.033.978 12.228s4.826 10.761 11.021 10.761S23.02 18.423 23.02 12.228c.001-6.195-5.021-11.217-11.216-11.217zM12 21.354c-5.273 0-9.381-3.886-9.381-9.159s3.942-9.548 9.215-9.548 9.548 4.275 9.548 9.548c-.001 5.272-4.109 9.159-9.382 9.159zm3.108-9.751c.795 0 1.439-.879 1.439-1.962s-.644-1.962-1.439-1.962-1.439.879-1.439 1.962.644 1.962 1.439 1.962z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="attach">
+              <input type="file" class="custom-file-input" />
+            </div>
+          </div>
+          <div class="inputs">
+                  
+                  <input type="text" placeholder="Enter Your messages here....."/>
+                  <button onclick="sendMessages()" id="send-button"><svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve"><path fill="currentColor" d="M1.101,21.757L23.8,12.028L1.101,2.3l0.011,7.912l13.623,1.816L1.112,13.845 L1.101,21.757z"></path></svg></button>
+              </div>
+        </div>
+    
+    </div>
+
+    
+  </body>
+  <script type="module" src="../firebase/config/firebase.js"></script>
+<script type="module" src="./chatsroom.js"></script>
+</html>
